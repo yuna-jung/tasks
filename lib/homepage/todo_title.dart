@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 class TodoTitle extends StatelessWidget{
+
+  static const String title="유나's Tasks";
+
   @override
   Widget build(BuildContext context) {
     return Text(
-      "유나's Tasks",
+      title,
       style: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.bold,
