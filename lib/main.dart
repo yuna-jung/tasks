@@ -25,14 +25,22 @@ class MyApp extends StatelessWidget {
         ),
       ),
       darkTheme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          foregroundColor: Colors.white,
+        ),
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.lightGreen,
+        colorScheme: const ColorScheme.dark(
+          onSurface: Colors.black,
+          // seedColor: Colors.lightGreen,
           brightness: Brightness.dark,
         ),
+        textTheme: const TextTheme(
+          titleMedium: TextStyle(color: Colors.black),
+          bodyMedium: TextStyle(color: Colors.black)
+        )
       ),
       themeMode: ThemeMode.light,
-      home: const Homepage(), // ✅ 여기만
+      home: const Homepage(),
     );
   }
 }

@@ -26,20 +26,29 @@ class TaskBox extends StatelessWidget{
           SizedBox(height: 12),
           Text(
             '아직 할 일이 없음',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold
-            ),
+            style: Theme.of(context).textTheme.titleMedium,
           ),
+          // Text(
+          //   '아직 할 일이 없음',
+          //   style: TextStyle(
+          //     fontSize: 16,
+          //     fontWeight: FontWeight.bold
+          //   ),
+          // ),
           SizedBox(height: 12),
           Text(
-            "할 일을 추가하고 ${TodoTitle.title}\n할 일을 추적하세요.",
+            "할 일을 추가하고 유나's Tasks\n할 일을 추적하세요.",
             textAlign: TextAlign.center,
-            style: TextStyle(
-            fontSize: 14,
-            height: 1.5,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
-          ),
+          // Text(
+          //   "할 일을 추가하고 ${TodoTitle.title}\n할 일을 추적하세요.",
+          //   textAlign: TextAlign.center,
+          //   style: TextStyle(
+          //   fontSize: 14,
+          //   height: 1.5,
+          // ),
+          // ),
           ],
       ),
     );
