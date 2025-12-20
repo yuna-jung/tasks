@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/homepage/todo_taskbox.dart';
+import 'package:to_do_app/homepage/todo_title.dart';
 
 void main() {
   runApp(const MyApp()); //앱 실행
@@ -22,8 +24,8 @@ class MyApp extends StatelessWidget {
         ),
 
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.lightBlue,
-          brightness: Brightness.light,
+          seedColor: Colors.lightBlue, // 메인 컬러 지정
+          brightness: Brightness.light, //라이트 모드일 때 설정
           ),
         ),
         darkTheme: ThemeData(
@@ -39,22 +41,29 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Homepage extends StatelessWidget{
+class Homepage extends StatefulWidget{
+  @override
+  State<Homepage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<Homepage>{
+  List<String> tasks=[];
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("유나's Tasks", 
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w800)),
+        title: TodoTitle()
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(),
         child: ListView(
-         
+         children: [
+          TaskBox(),
+         ],
         ),
       ),
+      // floatingActionButton: AddTaskFab(),
     );
   }
 }
