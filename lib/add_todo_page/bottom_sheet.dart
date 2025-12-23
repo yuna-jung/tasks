@@ -138,40 +138,9 @@ class _AddTodoBottomSheetState extends State<AddTodoBottomSheet> {
                 ),
               ],
             ),
-                      ],
+          ],
         ),
       )
     );
   }
 }
-
-            //description 입력창(줄바꿈 가능, size 14)
-//             if (_showDescription)
-//               SizedBox(
-//                 // 키보드 올라와도 화면 깨짐 방지용 최소 높이
-//                 height: 120,
-//                 child: Column(
-//                   children: [
-//                     Expanded(
-//                       child: TextField(
-//                         controller: _descController,
-//                         style: const TextStyle(fontSize: 14),
-//                         decoration: const InputDecoration(
-//                           hintText: '세부정보 추가',
-//                           hintStyle: TextStyle(fontSize: 14),
-//                           border: InputBorder.none,
-//                           isDense: true,
-//                         ),
-//                         keyboardType: TextInputType.multiline,
-//                         maxLines: null, //줄바꿈 가능
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }

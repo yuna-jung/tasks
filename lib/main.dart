@@ -25,19 +25,21 @@ class MyApp extends StatelessWidget {
         ),
       ),
       darkTheme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.dark,
         appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.black,
         foregroundColor: Colors.white,
         ),
 
-        useMaterial3: true,
-        colorScheme: const ColorScheme.dark().copyWith(
-          onSurface: Colors.black,
+          colorScheme: ColorScheme.dark(
+            // onSurface: Colors.black,
+          // seedColor: Colors.lightGreen,
+          brightness: Brightness.dark,
           ),
-        textTheme: const TextTheme(
-          titleMedium: TextStyle(color: Colors.black),
-          bodyMedium: TextStyle(color: Colors.black)
-        )
+        // textTheme: const TextTheme(
+        //   titleMedium: TextStyle(color: Colors.black),
+        //   bodyMedium: TextStyle(color: Colors.black)
+        // )
       ),
       themeMode: ThemeMode.dark,
       home: const Homepage(),
