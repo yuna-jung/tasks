@@ -29,7 +29,7 @@ class TaskBox extends StatelessWidget {
               builder: (innerContext) => Text(
                 '아직 할 일이 없음',
                 style: Theme.of(innerContext).textTheme.titleMedium?.copyWith(
-                  color: Colors.black87, // 명시적으로 어두운 색상 지정
+                  color: Colors.black, // 명시적으로 어두운 색상 지정
                   fontWeight: FontWeight.bold,
                 ),
               ),

@@ -32,16 +32,10 @@ class MyApp extends StatelessWidget {
         ),
 
           colorScheme: ColorScheme.dark(
-            // onSurface: Colors.black,
-          // seedColor: Colors.lightGreen,
           brightness: Brightness.dark,
           ),
-        // textTheme: const TextTheme(
-        //   titleMedium: TextStyle(color: Colors.black),
-        //   bodyMedium: TextStyle(color: Colors.black)
-        // )
       ),
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       home: const Homepage(),
     );
   }
