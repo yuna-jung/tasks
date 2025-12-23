@@ -58,7 +58,7 @@ class ToDoView extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 16,
                   // 완료 시 글자색을 흐리게(grey) 하고, 취소선을 긋습니다.
-                  color: toDo.isDone ? Colors.grey : Colors.black,
+                  color: toDo.isDone ? Colors.black : Colors.black,
                   decoration: toDo.isDone 
                       ? TextDecoration.lineThrough 
                       : TextDecoration.none,
@@ -69,7 +69,7 @@ class ToDoView extends StatelessWidget {
               ),
             ),
           ),
-          
+
           const SizedBox(width: 10),
 
           // 3. 즐겨찾기 별 아이콘
@@ -77,7 +77,7 @@ class ToDoView extends StatelessWidget {
             onPressed: onToggleFavorite,
             icon: Icon(
               toDo.isFavorite ? Icons.star : Icons.star_border,
-              color: toDo.isFavorite ? Colors.black : Colors.black12,
+              color: toDo.isFavorite ? Colors.black : Colors.black,
             ),
             iconSize: 22,
             padding: EdgeInsets.zero,

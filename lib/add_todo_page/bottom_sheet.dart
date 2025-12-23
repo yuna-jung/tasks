@@ -132,7 +132,7 @@ class _AddTodoBottomSheetState extends State<AddTodoBottomSheet> {
                     style: TextStyle(
                       fontSize: 16,
                       // 활성/비활성 색상 차이
-                      color: _canSave ? Colors.black : Colors.grey,
+                      color: _canSave ? Colors.white : Colors.white,
                     ),
                   ),
                 ),
