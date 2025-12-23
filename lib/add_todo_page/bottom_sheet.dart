@@ -25,7 +25,7 @@ class _AddTodoBottomSheetState extends State<AddTodoBottomSheet> {
   }
 
   @override
-  void dispose() {
+  void dispose() { // 컨트롤러는 반드시 dispose 해줘야 메모리 누수 방지가 가능함
     _titleController.dispose();
     _descController.dispose();
     super.dispose();
@@ -38,32 +38,32 @@ class _AddTodoBottomSheetState extends State<AddTodoBottomSheet> {
     final todo = TodoEntity(
       title: title,
       description: _descController.text.trim().isEmpty
-      ? null
+      ? null  // description이 비어있으면 null
       : _descController.text.trim(),
       isFavorite: _isFavorite,
     );
 
-    Navigator.pop(context, todo); // Todo 객체 반환 + 닫기
+    Navigator.pop(context, todo); // BottomSheet를 닫으면서 TodoEntity를 결과로 반환
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        // 좌우 20, 위 12, 하단 0 (키보드 높이만큼만 추가)
-        padding: EdgeInsets.fromLTRB(
+        
+        padding: EdgeInsets.fromLTRB( // 좌우 20, 위 12, 하단 0 (키보드 높이만큼만 추가)
           20,
           12,
           20,
           MediaQuery.of(context).viewInsets.bottom,
         ),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: MainAxisSize.min, // BottomSheet 높이를 내용만큼만 차지하도록 설정
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
-              controller: _titleController,
-              autofocus: true, // 바텀시트 뜨면 키보드 자동
+              controller: _titleController, // 할 일 제목 입력 TextField
+              autofocus: true, // 바텀시트 뜨면 키보드 자동 표시
               style: const TextStyle(fontSize: 16),
               decoration: const InputDecoration(
                 hintText: '새 할 일',
@@ -71,7 +71,7 @@ class _AddTodoBottomSheetState extends State<AddTodoBottomSheet> {
                 border: InputBorder.none,
                 isDense: true,
               ),
-              textInputAction: TextInputAction.done,
+              textInputAction: TextInputAction.done, // 키보드의 완료 버튼을 누르면 저장
               onSubmitted: (_) => saveTodo(), // 엔터 = 저장
             ),
 
@@ -79,7 +79,7 @@ class _AddTodoBottomSheetState extends State<AddTodoBottomSheet> {
 
             if (_showDescription)
               SizedBox(
-                // 키보드 올라와도 화면 깨짐 방지용 최소 높이
+                // 키보드가 올라와도 레이아웃이 깨지지 않도록 고정 높이 사용
                 height: 120,
                 child: Column(
                   children: [
@@ -102,10 +102,10 @@ class _AddTodoBottomSheetState extends State<AddTodoBottomSheet> {
               ),
 
               const SizedBox(height: 4),
-            // (2) 아이콘 줄 + 저장 버튼
+            // 아이콘 줄 + 저장 버튼
             Row(
               children: [
-                if (!_showDescription)
+                if (!_showDescription) // description 입력창이 보일 때는 숨김
                   IconButton(
                     onPressed: () {
                       setState(() => _showDescription = true);
@@ -113,7 +113,7 @@ class _AddTodoBottomSheetState extends State<AddTodoBottomSheet> {
                     icon: const Icon(Icons.short_text_rounded, size: 24),
                   ),
 
-                IconButton(
+                IconButton( //즐겨 찾기 토글 아이콘
                   onPressed: () {
                     setState(() => _isFavorite = !_isFavorite);
                   },

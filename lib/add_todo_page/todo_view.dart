@@ -18,13 +18,13 @@ class ToDoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8), //카드 간 간격
+      padding: const EdgeInsets.all(16), //카드 내부 여백
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.white, //카드 배경색
         borderRadius: BorderRadius.circular(12),
-        // 그림자를 살짝 추가하면 사진처럼 박스가 더 선명해 보입니다.
-        boxShadow: [
+        
+        boxShadow: [ //박스 그림자 추가
           BoxShadow(
             color: Colors.black.withOpacity(0.05),
             blurRadius: 5,
@@ -32,15 +32,15 @@ class ToDoView extends StatelessWidget {
           ),
         ],
       ),
-      child: Row(
+      child: Row( //카드 내부 요소들은 가로로 배치
         children: [
-          // 1. 체크 버튼 (두 번째 사진처럼 색상 변경)
-          IconButton(
+          
+          IconButton( // 완료 체크 버튼
             onPressed: onToggleDone,
             icon: Icon(
               toDo.isDone ? Icons.check_circle : Icons.circle_outlined,
-              // 완료 시에는 녹색(또는 테마색), 미완료 시에는 진한 회색
-              color: toDo.isDone ? Colors.green : Colors.black54,
+              // 완료 여부에 따라 아이콘 변경
+              color: toDo.isDone ? Colors.black : Colors.black,
             ),
             iconSize: 24,
             padding: EdgeInsets.zero,
@@ -49,21 +49,19 @@ class ToDoView extends StatelessWidget {
 
           const SizedBox(width: 12),
 
-          // 2. 텍스트 영역 (취소선 적용)
+          // 텍스트 영역 (취소선 적용)
           Expanded(
-            child: InkWell(
-              onTap: onTap,
+            child: InkWell( //텍스트 영역만 탭 가능하게 설정
+              onTap: onTap, //상세 페이지로 이동
               child: Text(
                 toDo.title,
                 style: TextStyle(
                   fontSize: 16,
-                  // 완료 시 글자색을 흐리게(grey) 하고, 취소선을 긋습니다.
                   color: toDo.isDone ? Colors.black : Colors.black,
-                  decoration: toDo.isDone 
+                  decoration: toDo.isDone //완료된 한 일은 취소선 표시
                       ? TextDecoration.lineThrough 
                       : TextDecoration.none,
-                  // 취소선의 두께나 색상을 더 명확하게 하고 싶을 때 (선택사항)
-                  decorationColor: Colors.grey,
+                  decorationColor: Colors.grey, //취소선 스타일 설정
                   decorationThickness: 2.0,
                 ),
               ),
@@ -72,10 +70,10 @@ class ToDoView extends StatelessWidget {
 
           const SizedBox(width: 10),
 
-          // 3. 즐겨찾기 별 아이콘
+          // 즐겨찾기 별 아이콘
           IconButton(
-            onPressed: onToggleFavorite,
-            icon: Icon(
+            onPressed: onToggleFavorite, //즐겨찾기 상태 토글
+            icon: Icon( //즐겨 찾기 여부에 따라 아이콘 변경
               toDo.isFavorite ? Icons.star : Icons.star_border,
               color: toDo.isFavorite ? Colors.black : Colors.black,
             ),
@@ -88,89 +86,3 @@ class ToDoView extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-// import 'package:flutter/material.dart';
-// import 'package:to_do_app/models/todo_entity.dart';
-
-// class ToDoView extends StatelessWidget {
-//   const ToDoView({
-//     super.key,
-//     required this.onTap,
-//     required this.toDo,
-//     required this.onToggleFavorite,
-//     required this.onToggleDone,
-//   });
-
-//   final VoidCallback onTap;
-//   final TodoEntity toDo;
-//   final VoidCallback onToggleFavorite;
-//   final VoidCallback onToggleDone;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       margin: const EdgeInsets.all(8),
-//       padding: const EdgeInsets.all(16),
-//       decoration: BoxDecoration(
-//         color: Colors.white,
-//         borderRadius: BorderRadius.circular(12),
-//       ),
-//       child: Row(
-//         children: [
-//           IconButton(
-//             onPressed: onToggleDone,
-//             icon: Icon(
-//               toDo.isDone ? Icons.check_circle : Icons.circle_outlined,
-//             ),
-//             iconSize: 22,
-//             padding: EdgeInsets.zero,
-//             constraints: const BoxConstraints(),
-//             visualDensity: VisualDensity.compact,
-//           ),
-
-//           const SizedBox(width: 10),
-
-//           // 텍스트 영역만 탭하면 상세 이동
-//           Expanded(
-//             child: InkWell(
-//               onTap: onTap,
-//               borderRadius: BorderRadius.circular(8),
-//               child: Padding(
-//                 // 탭 영역을 조금 넓혀서 누르기 편하게
-//                 padding: const EdgeInsets.symmetric(vertical: 6),
-//                 child: Text(
-//                   toDo.title,
-//                   style: TextStyle(
-//                     fontSize: 16,
-//                     decoration: toDo.isDone ? TextDecoration.lineThrough : null,
-//                   ),
-//                 ),
-//               ),
-//             ),
-//           ),
-
-//           const SizedBox(width: 10),
-
-//           IconButton(
-//             onPressed: onToggleFavorite,
-//             icon: Icon(
-//               toDo.isFavorite ? Icons.star : Icons.star_border,
-//             ),
-//             iconSize: 22,
-//             padding: EdgeInsets.zero,
-//             constraints: const BoxConstraints(),
-//             visualDensity: VisualDensity.compact,
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }

@@ -8,24 +8,24 @@ class TaskBox extends StatelessWidget {
     return Theme(
       data: ThemeData.light(), 
       child: Container(
-        width: double.infinity,
-        margin: const EdgeInsets.all(20),
+        width: double.infinity, //텍스트 크기에 따라가는게 아닌, 화면 크기에 맞춰서 박스 크기 설정
+        margin: const EdgeInsets.all(20), //마진과 패딩 20씩 주기
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Colors.grey[200], // 밝은 회색 배경
+          color: Colors.grey[200], // 밝은 회색 배경색 지정
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset(
+            Image.asset( //이미지 넣기
               'assets/images/empty_task.webp',
               width: 100,
               height: 100,
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 12), //위 아래 여백 주기
             Builder(
-              builder: (innerContext) => Text(
+              builder: (innerContext) => Text( 
                 '아직 할 일이 없음',
                 style: Theme.of(innerContext).textTheme.titleMedium?.copyWith(
                   color: Colors.black,
