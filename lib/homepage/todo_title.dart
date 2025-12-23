@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TodoTitle extends StatelessWidget{
+  const TodoTitle({super.key});
 
   static const String title="유나's Tasks";
 

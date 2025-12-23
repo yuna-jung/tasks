@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:to_do_app/homepage/todo_title.dart';
 
 class TaskBox extends StatelessWidget{
   const TaskBox({super.key});
